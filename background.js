@@ -1,3 +1,5 @@
+
+
 let div = document.createElement('div');
 div.className = "lamp";
 
@@ -13,6 +15,7 @@ div.style.transition ="all 1s";
 
 
 setInterval(async function() {
+
 
     let x =await localStorage.getItem("CPM");
 
