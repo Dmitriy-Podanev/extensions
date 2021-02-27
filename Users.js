@@ -10,7 +10,8 @@ fetch(URLrequest, {method: "GET"})
         data.map(item => {
             console.log(item);
             let listItem = document.createElement("li");
-            listItem.innerHTML = "Name: " + item.name + " ID:" + item.id;
+            listItem.className ="userCheck";
+            listItem.innerHTML = item.name; //todo проверять на active, чтобы вызывать цвет в html
             document.getElementById("users").appendChild(listItem);
 
         })
