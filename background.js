@@ -19,8 +19,7 @@ setInterval(async function() {
 
     let x =await localStorage.getItem("CPM");
 
-    console.log(x);
-    console.dir(x);
+
 
     if(x<=0){
         div.style.background = "black";
