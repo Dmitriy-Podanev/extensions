@@ -1,4 +1,5 @@
-$(document).keyup(checkSpeed);
+document.onkeyup = () => checkSpeed();
+
 
 let iLastTime = 0;
 let iTime = 0;
@@ -12,12 +13,13 @@ async function checkSpeed() {
     iTime = new Date().getTime();
 
 
-    if (iLastTime != 0) {
+    if (iLastTime !== 0) {
         iKeys++;
         iTotal += iTime - iLastTime;
 
         CPM = Math.round(iKeys / iTotal * 6000, 2);
-        await localStorage.setItem("CPM", CPM.toString());
+        localStorage.setItem("CPM", CPM.toString());
+
     }
 
     iLastTime = iTime;
@@ -36,7 +38,8 @@ async function checkSpeed() {
         iKeys = 0;
 
 
-        await localStorage.setItem("CPM", "0");
+        localStorage.setItem("CPM", "0");
+
 
 
     }
