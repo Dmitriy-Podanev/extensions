@@ -1,11 +1,25 @@
-#users{
+#users {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 
-    list-style: none ;
+    list-style: none;
 
 }
-.userCheck{
+
+.userCheck {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
     padding-bottom: 50px;
+
+
+    align-items: center;
+}
+
+
+button {
+
+
+    text-decoration-color: black;
 }

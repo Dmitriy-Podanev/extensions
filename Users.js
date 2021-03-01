@@ -11,11 +11,12 @@ fetch(URLrequest, {method: "GET"})
             console.log(item);
             let listItem = document.createElement("li");
             listItem.className ="userCheck";
-            listItem.innerHTML = item.name; //todo проверять на active, чтобы вызывать цвет в html
+            listItem.innerHTML ='<div style="width: 15px; height: 15px;background: green;border-radius: 10em; margin-right: 30px;"></div>' + item.name; //todo проверять на active, чтобы вызывать цвет в html
             document.getElementById("users").appendChild(listItem);
 
         })
     });
+
 
 
 
