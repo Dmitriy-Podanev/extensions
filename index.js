@@ -1,4 +1,4 @@
-document.onkeyup = () => checkSpeed();
+document.onkeyup = () =>checkSpeed();
 
 
 let iLastTime = 0;
