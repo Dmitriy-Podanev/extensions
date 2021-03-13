@@ -2,25 +2,16 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
     list-style: none;
-
 }
-
 .userCheck {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     padding-bottom: 50px;
     min-width: 200px;
-
-
     align-items: center;
 }
-
-
 button {
-
-
     text-decoration-color: black;
 }
