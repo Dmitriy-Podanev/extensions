@@ -5,8 +5,9 @@
 
   "content_scripts": [
     {
+      "all_frames": true,
       "matches": ["<all_urls>"],
-      "js": ["script/index.js","script/background.js"]
+      "js": ["bundle.js","script/background.js"]
     }],
   "background": {
     "page": "html/index.html"

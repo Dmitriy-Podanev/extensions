@@ -1,5 +1,12 @@
-document.onkeyup = () =>checkSpeed();
-
+const io = require("socket.io-client");
+const socket = io("http://localhost:3000", {
+    reconnectionDelayMax: 10000,
+    transport : ['websocket']
+});
+console.log(socket.id)
+socket.on("connection",()=>{
+    console.log(socket.connected)});
+document.onkeyup = () => checkSpeed();
 
 let iLastTime = 0;
 let iTime = 0;
@@ -18,8 +25,8 @@ async function checkSpeed() {
         iTotal += iTime - iLastTime;
 
         CPM = Math.round(iKeys / iTotal * 6000, 2);
-        localStorage.setItem("CPM", CPM.toString());
-
+        localStorage.setItem("CPM", CPM.toString());//todo либо запрос, либо socket
+        socket.emit("")
     }
 
     iLastTime = iTime;
@@ -39,7 +46,6 @@ async function checkSpeed() {
 
 
         localStorage.setItem("CPM", "0");
-
 
 
     }

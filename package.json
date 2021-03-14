@@ -1,6 +1,9 @@
 {
   "name": "extensions",
-  "version": "1.0.0"
-
-
+  "version": "1.0.0",
+  "dependencies": {
+    "socket.io-client": "latest",
+    "uniq": "^1.0.1"
+  },
+  "license": "ISC"
 }
