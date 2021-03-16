@@ -7058,14 +7058,18 @@ yeast.decode = decode;
 module.exports = yeast;
 
 },{}],40:[function(require,module,exports){
+
 const io = require("socket.io-client");
-const socket = io("http://localhost:3000", {
-    reconnectionDelayMax: 10000,
-    transport : ['websocket']
+const socket = io("ws://localhost:3000", {
+    origin:"*",
+    withCredentials: false,
+    credential:false,
+    extraHeaders: {
+        "my-custom-header": "abcd"
+    }
 });
-console.log(socket.id)
-socket.on("connection",()=>{
-    console.log(socket.connected)});
+socket.emit('chat message', "hello from extensions");
+
 document.onkeyup = () => checkSpeed();
 
 let iLastTime = 0;
@@ -7086,7 +7090,8 @@ async function checkSpeed() {
 
         CPM = Math.round(iKeys / iTotal * 6000, 2);
         localStorage.setItem("CPM", CPM.toString());//todo либо запрос, либо socket
-        socket.emit("")
+        socket.emit('chat message', CPM.toString());
+
     }
 
     iLastTime = iTime;

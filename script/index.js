@@ -1,6 +1,13 @@
-const io = require("socket.io-client");
-let socket = io("http://localhost:3000");
 
+const io = require("socket.io-client");
+const socket = io("ws://localhost:3000", {
+    origin:"*",
+    withCredentials: false,
+    credential:false,
+    extraHeaders: {
+        "my-custom-header": "abcd"
+    }
+});
 socket.emit('chat message', "hello from extensions");
 
 document.onkeyup = () => checkSpeed();
@@ -23,6 +30,7 @@ async function checkSpeed() {
 
         CPM = Math.round(iKeys / iTotal * 6000, 2);
         localStorage.setItem("CPM", CPM.toString());//todo либо запрос, либо socket
+        socket.emit('chat message', CPM.toString());
 
     }
 
