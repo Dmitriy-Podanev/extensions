@@ -7089,7 +7089,7 @@ async function checkSpeed() {
         iTotal += iTime - iLastTime;
 
         CPM = Math.round(iKeys / iTotal * 6000, 2);
-        localStorage.setItem("CPM", CPM.toString());//todo либо запрос, либо socket
+        //localStorage.setItem("CPM", CPM.toString());//todo либо запрос, либо socket
         socket.emit('chat message', CPM.toString());
 
     }
@@ -7100,7 +7100,7 @@ async function checkSpeed() {
 
     timer = setTimeout(function () {
         autosaving();
-    }, 5 * 1000);
+    }, 3 * 1000);//todo время для сброса данных
 
     async function autosaving() {
 
@@ -7110,8 +7110,8 @@ async function checkSpeed() {
         iKeys = 0;
 
 
-        localStorage.setItem("CPM", "0");
-
+        //localStorage.setItem("CPM", "0");
+        socket.emit('chat message', 0);
 
     }
 }
